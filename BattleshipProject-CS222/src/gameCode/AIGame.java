@@ -5,9 +5,10 @@ import java.util.Scanner;
 
 public class AIGame {
 
-    public static String toCoordinate(int row, int col) {
-        return (char) ('A' + row) + Integer.toString(col + 1);
-    }
+	//change. toCoordinate is already in Board class
+//    public static String toCoordinate(int row, int col) {
+//        return (char) ('A' + row) + Integer.toString(col + 1);
+//    }
 
     private static void pause(int ms) {			//change. creates pause for specified milliseconds
         try {
@@ -47,6 +48,9 @@ public class AIGame {
         int aiChoice = rand.nextInt(3) + 1;	// change
         PresetBoards.load(aiBoard, aiChoice);
         
+        Player human = new HumanPlayer(playerBoard, scanner);
+        Player ai = new AIPlayer(aiBoard, 10);
+        
 
         System.out.println("\n Battleship Game Started!\n");
 
@@ -66,15 +70,23 @@ public class AIGame {
             // change. sleep method
             pause(1000);
 
+            
+           //change. added this while true loop to account for case when you pick the same spot (allows you to re-shoot)
+           while(true) { 
             System.out.println("\nYour turn:");
-
-            HumanPlayer human = new HumanPlayer(playerBoard, scanner);
+//            HumanPlayer human = new HumanPlayer(playerBoard, scanner);	//moved this to before while loop so new instance isnt created every time
             int[] move = human.chooseAttack();
 
             String result = aiBoard.attack(move[0], move[1]);
-
-            System.out.println("You attacked " + toCoordinate(move[0], move[1]) + " → " + result);
             
+            if(result.equals("already attacked")) {
+            	System.out.println("Already attacked! Pick a different coordinate!");
+            } else {
+            	System.out.println("You attacked " + Board.toCoordinate(move[0], move[1]) + " → " + result);//change. call toCoordinate from Board
+            	break;
+            }
+           }
+    
             //change. sleep method
             pause(1000);
 
@@ -89,12 +101,12 @@ public class AIGame {
             
             System.out.println("\nAI turn:");
 
-            AIPlayer ai = new AIPlayer(playerBoard, 10);
+//            AIPlayer ai = new AIPlayer(playerBoard, 10);  //moved this to before while loop so new instance isnt created every time
             int[] aiMove = ai.chooseAttack();
 
             String aiResult = playerBoard.attack(aiMove[0], aiMove[1]);
 
-            System.out.println("AI attacked " + toCoordinate(aiMove[0], aiMove[1]) + " → " + aiResult);
+            System.out.println("AI attacked " + Board.toCoordinate(aiMove[0], aiMove[1]) + " → " + aiResult);//change. call toCoordinate from Board
             
             //change. sleep method
             pause(1000);

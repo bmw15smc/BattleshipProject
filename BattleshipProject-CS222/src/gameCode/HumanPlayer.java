@@ -2,16 +2,17 @@ package gameCode;
 
 import java.util.Scanner;
 
-public class HumanPlayer {
+public class HumanPlayer extends Player {		//change. extends player
 
-    private Board board;
+//    private Board board;		//change. from super class now
     private Scanner scanner;
 
     public HumanPlayer(Board board, Scanner scanner) {
-        this.board = board;
+        super(board);		//change. using constructor from superclass Player
         this.scanner = scanner;
     }
 
+    @Override		//change to override
     public int[] chooseAttack() {
 
         while (true) {

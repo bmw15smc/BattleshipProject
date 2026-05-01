@@ -58,7 +58,7 @@ public class Board {
         }
 
         if (grid[row][col] == 'X' || grid[row][col] == 'O') {
-            return "Already attacked!";
+            return "already attacked";		// change. this now doesn't get returned but is used to validate move in AiGame
         }
 
         for (Ship ship : ships) {

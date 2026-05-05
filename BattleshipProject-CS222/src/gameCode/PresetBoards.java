@@ -13,6 +13,12 @@ public class PresetBoards {
         else if (choice == 3) {
             preset3(board);
         } 
+        else if(choice == 4) {
+        	preset4(board);
+        }
+        else if(choice == 5) {
+        	preset5(board);
+        }
         else {
             System.out.println("Invalid choice. Loading preset 1.");
             preset1(board);
@@ -58,6 +64,32 @@ public class PresetBoards {
 //        } catch (Exception e) {
 //            System.out.println("Preset3 error: " + e);
 //        }
+    }
+    
+    private static void preset4(Board board) {
+
+//      try {
+          board.addShip(new Ship(5,"Carrier", 9, 0, true));
+          board.addShip(new Ship(4,"Battleship", 7, 1, true));
+          board.addShip(new Ship(3,"Cruiser", 7, 7, false));
+          board.addShip(new Ship(3,"Submarine", 7, 9, false));
+          board.addShip(new Ship(2,"Destroyer", 5, 2, true));
+//        } catch (Exception e) {
+//        System.out.println("Preset3 error: " + e);
+//    }
+    }
+    
+    private static void preset5(Board board) {
+
+//      try {
+          board.addShip(new Ship(5,"Carrier", 2, 2, true));
+          board.addShip(new Ship(4,"Battleship", 5, 6, false));
+          board.addShip(new Ship(3,"Cruiser", 7, 1, false));
+          board.addShip(new Ship(3,"Submarine", 4, 1, true));
+          board.addShip(new Ship(2,"Destroyer", 6, 8, false));
+//        } catch (Exception e) {
+//        System.out.println("Preset3 error: " + e);
+//    }
     }
    
     

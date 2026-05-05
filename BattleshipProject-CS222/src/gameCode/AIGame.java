@@ -30,12 +30,12 @@ public class AIGame {
 
         while (true) {
             try {
-                System.out.print("Choose your preset (1-3): ");
+                System.out.print("Choose your preset (1-5): ");
                 choice = Integer.parseInt(scanner.nextLine());
 
-                if (choice >= 1 && choice <= 3) break;
+                if (choice >= 1 && choice <= 5) break;
 
-                System.out.println("Please enter 1, 2, or 3.");
+                System.out.println("Please enter 1, 2, 3, 4, or 5.");
             } catch (Exception e) {
                 System.out.println("Invalid input. Try again.");
             }
@@ -45,7 +45,7 @@ public class AIGame {
 
        
         Random rand = new Random();			//change
-        int aiChoice = rand.nextInt(3) + 1;	// change
+        int aiChoice = rand.nextInt(5) + 1;	// change
         PresetBoards.load(aiBoard, aiChoice);
         
         Player human = new HumanPlayer(playerBoard, scanner);

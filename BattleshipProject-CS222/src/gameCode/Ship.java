@@ -1,14 +1,14 @@
 package gameCode;
 
 public class Ship extends ShipLogic {
-	private String type;	//change
+	private String type;
     private int size;
     private int hits;
     private boolean horizontal;
 
-    public Ship(int size, String type, int startRow, int startCol, boolean horizontal) {		//change
+    public Ship(int size, String type, int startRow, int startCol, boolean horizontal) {
         super(startRow, startCol);
-        this.type = type;		//change
+        this.type = type;
         this.size = size;
         this.horizontal = horizontal;
         this.hits = 0;

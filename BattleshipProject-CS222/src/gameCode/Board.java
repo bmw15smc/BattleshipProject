@@ -5,6 +5,7 @@ public class Board {
     private char[][] grid;
     private ArrayList<Ship> ships;
     private int size;
+    private boolean hitNuke = false;
 
     public Board(int size) {
         this.size = size;
@@ -33,11 +34,11 @@ public class Board {
             int c = ship.isHorizontal() ? ship.startCol + i : ship.startCol;
 
             if (!isValidPosition(r, c)) {
-                throw new IllegalArgumentException("Ship out of bounds! Issue: " + ship.getType()); //changed to show which ship is the issue
+                throw new IllegalArgumentException("Ship out of bounds! Issue: " + ship.getType());
             }
 
-            if (grid[r][c] == '\u25a0') {		//change ship symbol
-                throw new IllegalArgumentException("Ships overlap! Issue: " + ship.getType());	//same change
+            if (grid[r][c] == '\u25a0') {
+                throw new IllegalArgumentException("Ships overlap! Issue: " + ship.getType());
             }
         }
 
@@ -47,7 +48,12 @@ public class Board {
             int r = ship.isHorizontal() ? ship.startRow : ship.startRow + i;
             int c = ship.isHorizontal() ? ship.startCol + i : ship.startCol;
 
-            grid[r][c] = '\u25a0';		//changed S to a square to see better (unicode)
+            if(ship.getType().equals("Nuke")) {
+            	grid[r][c] = '8';
+            }
+            else{
+            	grid[r][c] = '\u25a0';
+            }
         }
     }
 
@@ -58,7 +64,7 @@ public class Board {
         }
 
         if (grid[row][col] == 'X' || grid[row][col] == 'O') {
-            return "already attacked";		// change. this now doesn't get returned but is used to validate move in AiGame
+            return "already attacked";
         }
 
         for (Ship ship : ships) {
@@ -66,7 +72,12 @@ public class Board {
                 ship.hit();
                 grid[row][col] = 'X';
                 
-              if(ship.isSunk()){								//changed so it prints when a ship is sunk
+                if(ship.getType().equals("Nuke")) {	
+                	hitNuke();
+                	return("NUKE");
+                }
+                
+              if(ship.isSunk()){
             	  return "Hit! " + ship.getType() + " is sunk!";
               }
               return "Hit!";
@@ -77,7 +88,14 @@ public class Board {
         return "Miss!";
     }
 
+    public void hitNuke() {
+    	this.hitNuke = true;
+    }
+    
     public boolean allShipsSunk() {
+    	if(hitNuke) {
+    		return true;
+    	}
         for (Ship ship : ships) {
             if (!ship.isSunk()) {
                 return false;
@@ -103,7 +121,7 @@ public class Board {
 
                 char display = grid[row][col];
 
-                if (!showShips && display == '\u25a0') {		//changed S to square
+                if (!showShips && (display == '\u25a0' || display == '8')) {
                     display = '~';
                 }
 

@@ -25,71 +25,56 @@ public class PresetBoards {
         }
     }
 
-    
-    //change. dont need try catch in here bc it will be caught in board.
     private static void preset1(Board board) {
 
-//        try {
             board.addShip(new Ship(5,"Carrier", 0, 0, true));
             board.addShip(new Ship(4,"Battleship", 2, 2, false));
-            board.addShip(new Ship(3,"Cruiser", 5, 7, false));		//changed to column 4 bc was overlapping before (5,7)
+            board.addShip(new Ship(3,"Cruiser", 5, 7, false));	
             board.addShip(new Ship(3,"Submarine", 7, 5, false));
             board.addShip(new Ship(2,"Destroyer", 9, 7, true));
-//        } catch (Exception e) {
-//            System.out.println("Preset1 ship error: " + e);
-//       }
+            board.addShip(new Nuke(3,6));
     }
    
     private static void preset2(Board board) {
 
-//        try {
             board.addShip(new Ship(5,"Carrier", 1, 1, false));
             board.addShip(new Ship(4,"Battleship",0, 6, true));
             board.addShip(new Ship(3,"Cruiser",4, 3, true));
             board.addShip(new Ship(3,"Submarine",6, 8, false));
             board.addShip(new Ship(2,"Destroyer", 9, 0, true));
-//        } catch (Exception e) {
-//            System.out.println("Preset2 error: " + e);
-//        }
+            board.addShip(new Nuke(2,9));
+
     }
 
     private static void preset3(Board board) {
 
-//        try {
             board.addShip(new Ship(5,"Carrier", 5, 0, true));
             board.addShip(new Ship(4,"Battleship", 0, 0, false));
             board.addShip(new Ship(3,"Cruiser", 2, 6, true));
             board.addShip(new Ship(3,"Submarine", 7, 2, false));
             board.addShip(new Ship(2,"Destroyer", 9, 8, true));
-//        } catch (Exception e) {
-//            System.out.println("Preset3 error: " + e);
-//        }
+            board.addShip(new Nuke(1,4)); 
     }
     
     private static void preset4(Board board) {
 
-//      try {
           board.addShip(new Ship(5,"Carrier", 9, 0, true));
           board.addShip(new Ship(4,"Battleship", 7, 1, true));
           board.addShip(new Ship(3,"Cruiser", 7, 7, false));
           board.addShip(new Ship(3,"Submarine", 7, 9, false));
           board.addShip(new Ship(2,"Destroyer", 5, 2, true));
-//        } catch (Exception e) {
-//        System.out.println("Preset3 error: " + e);
-//    }
+          board.addShip(new Nuke(0,9));
     }
     
     private static void preset5(Board board) {
-
-//      try {
+    	
           board.addShip(new Ship(5,"Carrier", 2, 2, true));
           board.addShip(new Ship(4,"Battleship", 5, 6, false));
           board.addShip(new Ship(3,"Cruiser", 7, 1, false));
           board.addShip(new Ship(3,"Submarine", 4, 1, true));
           board.addShip(new Ship(2,"Destroyer", 6, 8, false));
-//        } catch (Exception e) {
-//        System.out.println("Preset3 error: " + e);
-//    }
+          board.addShip(new Nuke(6,4)); 
+
     }
    
     

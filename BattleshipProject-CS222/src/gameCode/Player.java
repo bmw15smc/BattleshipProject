@@ -1,7 +1,7 @@
 package gameCode;
 
 public abstract class Player {
-    protected Board board;		//subclasses can access
+    protected Board board;
 
     public Player(Board board) {
         this.board = board;

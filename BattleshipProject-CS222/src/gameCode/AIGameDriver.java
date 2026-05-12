@@ -3,7 +3,7 @@ package gameCode;
 import java.util.Random;
 import java.util.Scanner;
 
-public class AIGame {
+public class AIGameDriver {
 
 	//change. toCoordinate is already in Board class
 //    public static String toCoordinate(int row, int col) {

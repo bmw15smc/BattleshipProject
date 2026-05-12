@@ -25,9 +25,11 @@ public class Ship extends ShipLogic {
         return false;
     }
 
-    public void hit() { hits++;}
+    public void hit() { 
+    	hits++;
+    }
 
-    public boolean isSunk() {  return hits >= size; }
+    public boolean isSunk(){  return hits >= size; }
     
     public String getType() {return type; }
     public int getSize() { return size; }

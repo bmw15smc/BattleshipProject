@@ -49,10 +49,10 @@ public class Board {
             int c = ship.isHorizontal() ? ship.startCol + i : ship.startCol;
 
             if(ship.getType().equals("Nuke")) {
-            	grid[r][c] = '8';
+            	grid[r][c] = '8';		// nuke symbol
             }
             else{
-            	grid[r][c] = '\u25a0';
+            	grid[r][c] = '\u25a0';		// looked up unicode symbol
             }
         }
     }

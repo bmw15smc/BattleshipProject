@@ -32,7 +32,7 @@ public class PresetBoards {
             board.addShip(new Ship(3,"Cruiser", 5, 7, false));	
             board.addShip(new Ship(3,"Submarine", 7, 5, false));
             board.addShip(new Ship(2,"Destroyer", 9, 7, true));
-            board.addShip(new Nuke(3,6));
+            board.addShip(new Nuke(3,6));	//G4
     }
    
     private static void preset2(Board board) {
@@ -42,7 +42,7 @@ public class PresetBoards {
             board.addShip(new Ship(3,"Cruiser",4, 3, true));
             board.addShip(new Ship(3,"Submarine",6, 8, false));
             board.addShip(new Ship(2,"Destroyer", 9, 0, true));
-            board.addShip(new Nuke(2,9));
+            board.addShip(new Nuke(2,9));	//J3
 
     }
 
@@ -53,7 +53,7 @@ public class PresetBoards {
             board.addShip(new Ship(3,"Cruiser", 2, 6, true));
             board.addShip(new Ship(3,"Submarine", 7, 2, false));
             board.addShip(new Ship(2,"Destroyer", 9, 8, true));
-            board.addShip(new Nuke(1,4)); 
+            board.addShip(new Nuke(1,4));		//E2
     }
     
     private static void preset4(Board board) {
@@ -63,7 +63,7 @@ public class PresetBoards {
           board.addShip(new Ship(3,"Cruiser", 7, 7, false));
           board.addShip(new Ship(3,"Submarine", 7, 9, false));
           board.addShip(new Ship(2,"Destroyer", 5, 2, true));
-          board.addShip(new Nuke(0,9));
+          board.addShip(new Nuke(0,9));		//J1
     }
     
     private static void preset5(Board board) {
@@ -73,7 +73,7 @@ public class PresetBoards {
           board.addShip(new Ship(3,"Cruiser", 7, 1, false));
           board.addShip(new Ship(3,"Submarine", 4, 1, true));
           board.addShip(new Ship(2,"Destroyer", 6, 8, false));
-          board.addShip(new Nuke(6,4)); 
+          board.addShip(new Nuke(6,4));		//E7
 
     }
    
